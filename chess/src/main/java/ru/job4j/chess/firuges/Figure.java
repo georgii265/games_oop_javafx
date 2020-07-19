@@ -3,15 +3,22 @@ package ru.job4j.chess.firuges;
 import ru.job4j.chess.ImpossibleMoveException;
 
 public interface Figure {
-    Cell position();
+    Cell position(); //метод используется для получения позиции фигуры на поле.Он возвращает тип перечисления.
 
     Cell[] way(Cell source, Cell dest) throws ImpossibleMoveException;
+    // метод возвращает массив с клетками, которые должна пройти фигура от клетки source до клетки dest.
+    // Здесь возвращается массив, потому что разные фигуры ходят по-разному.
+    // Например, конь сразу перейдет в клетку dest. А ферзь должен пройти все клетки от source до dest.
 
-    default String icon() {
+    default String icon() { //метод возвращает имя картинки фигуры. Этот метод имеет реализацию по умолчанию.
         return String.format(
                 "%s.png", this.getClass().getSimpleName()
         );
     }
 
     Figure copy(Cell dest);
+    //Этот метод создаст объект класса с позицией dest. Все фигуры в нашем проекте будут одноразовые.
+    // При переходе из одной клетки в другую, мы будем создавать новый объект с новой позицией, а старый будем удалять.
+    // Этот подход избавляет от вечных ссылок.
+    // Также в этом проекте хотелось показать, что мы можем реализовать весь код без antipattern get set.
 }

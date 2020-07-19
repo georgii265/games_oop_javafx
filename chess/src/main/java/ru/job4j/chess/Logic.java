@@ -6,7 +6,7 @@ import ru.job4j.chess.firuges.Figure;
 import java.util.Arrays;
 
 /**
- * //TODO add comments.
+ * Этот класс будет проверять, можно двигаться так фигурам или нет.
  *
  * @author Petr Arsentev (parsentev@yandex.ru)
  * @version $Id$
@@ -20,6 +20,13 @@ public class Logic {
         this.figures[this.index++] = figure;
     }
 
+    /**
+     * он работает от передвижений фигур перетаскиванием, передаёт точку начала и точку окончания
+     * потом по точке начала определяется фигура, и через её метод way определяется, может ли она пройти этот путь,
+     * поклеточно проверяется,
+     * есть ли в точках её пути другие фигуры, если ок,
+     * то фигура копируется в новое место, если нет, то ничего не происходит.
+     */
     public void move(Cell source, Cell dest)
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
         int index = this.findBy(source);
