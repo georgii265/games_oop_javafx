@@ -18,7 +18,7 @@ public class BishopBlackTest {
     @Test
     public void position() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
-        assertThat(bishopBlack.position(),is(Cell.C1));
+        assertThat(bishopBlack.position(), is(Cell.C1));
     }
 
     /**
@@ -29,7 +29,7 @@ public class BishopBlackTest {
     @Test
     public void copy() {
         Figure bishopBlack = new BishopBlack(Cell.C1);
-        assertThat(new BishopBlack(Cell.C1).position(),is(bishopBlack.position()));
+        assertThat(new BishopBlack(Cell.C1).position(), is(bishopBlack.position()));
     }
 
     /**
@@ -38,8 +38,21 @@ public class BishopBlackTest {
      * Метод должен вернуть массив из 4 клеток. D2, E3, F4, G5.
      */
     @Test
-    public void way() {
+    public void diagonalway() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
-        assertThat(bishopBlack.way(Cell.C1,Cell.G5), is(new Cell[]{ Cell.D2,Cell.E3,Cell.F4,Cell.G5}));
+        assertThat(bishopBlack.way(Cell.C1, Cell.G5), is(new Cell[]{Cell.D2, Cell.E3, Cell.F4, Cell.G5}));
+    }
+
+    /**
+     * Нужно проверить, что если мы передали начальную и конечную ячейки,
+     * через которые нельзя провести диагональ, нужно выкинуть исключение.
+     * на шахматной доске у нас имеется три линии - вертикаль
+     *                                            - диагональ
+     *                                            - горизонталь.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void verticalway() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.C1);
+        bishopBlack.way(Cell.C1, Cell.C4);
     }
 }

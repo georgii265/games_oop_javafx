@@ -7,10 +7,6 @@ import java.util.Arrays;
 
 /**
  * Этот класс будет проверять, можно двигаться так фигурам или нет.
- *
- * @author Petr Arsentev (parsentev@yandex.ru)
- * @version $Id$
- * @since 0.1
  */
 public class Logic {
     private final Figure[] figures = new Figure[32];
@@ -37,8 +33,19 @@ public class Logic {
         this.figures[index] = this.figures[index].copy(dest);
     }
 
-    private boolean isFree(Cell[] steps) {
-        return true;
+    /**
+     * в цикле перебрать массива клеток, на каждой итерации кидаем на проверку в метод findBy
+     * если вернул значение от 0 и выше - значит клетка занята и мы возвращаем false
+     */
+    private boolean isFree(Cell[] steps) throws FigureNotFoundException {
+        boolean rsl = true;
+        for (Cell cell : steps) {
+            if (findBy(cell) >= 0) {
+                rsl = false;
+                break;
+            }
+        }
+        return rsl;
     }
 
     public void clean() {
