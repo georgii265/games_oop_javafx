@@ -4,6 +4,7 @@ import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
 public class BishopBlack implements Figure {
+
     private final Cell position;
 
     public BishopBlack(final Cell position) {
@@ -15,19 +16,6 @@ public class BishopBlack implements Figure {
         return this.position;
     }
 
-    /**
-     * Движение слона происходит по диагонали.
-     * Мы знаем начальную и конечную точку движения фигуры.
-     * По этим координатам мы можем понять, движется ли слон по диагонали.
-     * Если он находится на диагонали, то мы можем вычислить дельты шагов.
-     * Слон может двигаться в четыре стороны. Эти движения можно описать двумя дельтами +1 -1.
-     * Например, если слон двигается вниз влево, то дельты будут -1 -1.
-     *
-     *
-     * Пользователь может перетащить слона на клетку, которая отличается от диагонали.
-     * В этом случае наш код не будет работать. Давайте добавим в метод BishopBlack проверку.
-     *  if (!isDiagonal(source, dest)) //оператор логического «НЕ» будет делать false
-     */
     @Override
     public Cell[] way(Cell source, Cell dest) {
         if (!isDiagonal(source, dest)) {

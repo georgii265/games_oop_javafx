@@ -26,11 +26,6 @@ public enum Cell {
         return y;
     }
 
-    /**
-     * Чтобы получить нужный объект из перечисления мы используем статический метод.
-     * метод values() возвращает массив всех объектов этого перечисления.
-     * for(тип итер_пер : коллекция) блок_операторов
-     */
     public static Cell findBy(int x, int y) {
         Cell rsl = null;
         for (Cell cell : values()) {
