@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/georgii265/games_oop_javafx.svg?branch=master)](https://travis-ci.org/georgii265/games_oop_javafx)
+[![Build Status](https://travis-ci.org/georgii265/games_oop_javafx.svg)](https://travis-ci.org/georgii265/games_oop_javafx)
 [![codecov](https://codecov.io/gh/georgii265/games_oop_javafx/branch/master/graph/badge.svg)](https://codecov.io/gh/georgii265/games_oop_javafx)
 
 # games_oop_javafx
